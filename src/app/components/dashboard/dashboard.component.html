@@ -1,0 +1,38 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo">Iniciar Sección</span>
+                    <form (ngSubmit)="login()" [formGroup]="loginUsuario">
+                        <h5 class="text-start m-3 font-weight-bold">Correo Electronico:</h5>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" formControlName="email" placeholder="name@example.com">
+                            <label>Correo Electrónico </label>
+                            <span *ngIf="loginUsuario.get('email')?.hasError('required') && loginUsuario.get('email')?.touched" class="text-danger">
+                                El <strong>Correo</strong> es requerido
+                            </span>
+                            <span *ngIf="loginUsuario.get('email')?.hasError('email') && loginUsuario.get('email')?.touched" class="text-danger ">
+                                El dominio del <strong>Correo</strong> es invalido
+                            </span>
+                        </div>
+
+                        <h5 class="text-start font-weight-bold m-3">Contraseña:</h5>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" formControlName="password" placeholder="Password" id="exampleInputPassword1">
+                            <label>Contraseña</label>
+                            <span *ngIf="loginUsuario.get('password')?.hasError('required') && loginUsuario.get('password')?.touched" class="text-danger ">
+                                La <strong>password</strong> es requerida
+                            </span>
+                            <span *ngIf="loginUsuario.get('password')?.hasError('minlength') && loginUsuario.get('password')?.touched" class="text-danger ">
+                                La <strong>Contraseña</strong> debe tener como minimo 6 caracteres
+                            </span>
+                        </div>
+
+                        <button type="submit" [disabled]="loginUsuario.invalid" class="btn btn-primary btn-lg mb-3 w-200">Ingresar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>                   

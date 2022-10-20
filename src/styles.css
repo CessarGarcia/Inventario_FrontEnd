@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body{
+    background: #159957;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #155799, #159957);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #155799, #159957); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.titulo{
+    font-size: 35px;
+    text-align: center;
+    font-family: 'sans-serif, Verdana, Segoe UI', Tahoma, Geneva;
+    font-weight: bolder;
+}
+
+.fas{
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.contenido{
+    max-width: 65%;
+    float: right;
+    display: inline;
+}

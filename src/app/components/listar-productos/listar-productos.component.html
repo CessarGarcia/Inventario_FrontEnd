@@ -1,0 +1,50 @@
+<div>
+  <div class="row">
+    <div class="col-md-2 colnav">
+      <app-navbar></app-navbar>
+    </div>
+
+    <div class=" mt-5 col-xl-9">
+      <div class="row">
+          <div class="col-lg-8 offset-lg-2">
+              <div class="card">
+                  <div class="card-body text-center">
+                      <span class="titulo">Listado De Productos</span>
+                      <button class="btn btn-new float-end btn-lg" routerLink="/crear-producto"> Nuevo </button>
+                      <table *ngIf="listProductos.length > 0" class="table table-striped mt-4">
+                          <thead>
+                            <tr>
+                              <th scope="col">Nombre</th>
+                              <th scope="col">Categoria</th>
+                              <th scope="col">Proveedor</th>
+                              <th scope="col">Precio unitario</th>
+                              <th scope="col">items</th>
+                              <th scope="col"></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let producto of listProductos">
+                              <td>{{producto.nombre}}</td>
+                              <td>{{producto.categoria}}</td>
+                              <td>{{producto.proveedor}}</td>
+                              <td>{{producto.precio | currency: ''}}</td>
+                              <td>{{producto.items}}</td>
+                              <td>
+                                <i [routerLink]="['/editar-producto', producto._id]" class="fas fa-edit text-primary"></i>
+                                <i (click)="eliminarProducto(producto._id)" class="fas fa-trash text-danger"></i>
+                            </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <h5 class="text-danger mt-3" *ngIf="listProductos.length <= 0">La lista de productos esta vacia</h5>
+                        <button class="btn btn-lg btn-excel"> Exportar a Excel</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
